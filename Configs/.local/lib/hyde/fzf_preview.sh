@@ -7,13 +7,12 @@ img_preview() {
     if [[ $(tput colors) -lt "256" ]]; then return; fi
     local image_url="$1"
     [ -z "$image_url" ] && return 1
-    if [ xterm-kitty == "$TERM" ]; then
-        kitty icat --clear --transfer-mode=memory --stdin=no --place=100x200@20x2 "$image_url" || kitty icat --clear --transfer-mode=memory --stdin=no "$image_url"
+    if command -v wezterm >/dev/null 2>&1; then
+        wezterm imgcat --width 100 --height 200 "$image_url" 2>/dev/null || wezterm imgcat "$image_url" 2>/dev/null
+    elif command -v jp2a &> /dev/null; then
+        find "$image_url" -name "*" -exec jp2a --colors --color-depth=24 --chars=' .:-=+*#%@' --fill --term-fit --background=dark {} \; 2> /dev/null
     else
-        if command -v jp2a &> /dev/null; then
-            find "$image_url" -name "*" -exec jp2a --colors --color-depth=24 --chars=' .:-=+*#%@' --fill --term-fit --background=dark {} \; 2> /dev/null
-        else
-            cat << EOF
+        cat << EOF
           ░▒▒▒░░░░░▓▓          ___________
         ░░▒▒▒░░░░░▓▓        //___________/
        ░░▒▒▒░░░░░▓▓     _   _ _    _ _____
@@ -23,8 +22,7 @@ img_preview() {
            ░▒▓▓   ▓▓  //____/
 
 EOF
-            print_log -y "Install 'jp2a' to preview in ASCII format"
-        fi
+        print_log -y "Install 'jp2a' to preview in ASCII format"
     fi
 }
 eval "$(declare -F | sed -e 's/-f /-fx /')"

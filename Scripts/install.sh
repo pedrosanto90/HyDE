@@ -141,6 +141,12 @@ EOF
 		cat "${custom_pkg}" >>"${scrDir}/install_pkg.lst"
 	fi
 
+	# add bundled scripts to PATH (e.g., tmux-se)
+	if [ -d "${scrDir}/bin" ]; then
+		mkdir -p "${HOME}/.local/bin"
+		cp -f "${scrDir}/bin/"* "${HOME}/.local/bin/"
+	fi
+
 	#--------------------------------#
 	# add nvidia drivers to the list #
 	#--------------------------------#
@@ -229,6 +235,16 @@ EOF
 	# install packages from the list #
 	#--------------------------------#
 	"${scrDir}/install_pkg.sh" "${scrDir}/install_pkg.lst"
+
+	#--------------------------------#
+	# npm global: codex-cli          #
+	#--------------------------------#
+	if [ ${flg_DryRun} -ne 1 ] && command -v npm >/dev/null 2>&1; then
+		print_log -sec "npm" -stat "global" "codex-cli"
+		if ! sudo npm install -g codex-cli >/dev/null 2>&1; then
+			print_log -warn "npm" "Failed to install codex-cli globally (check npm/sudo)."
+		fi
+	fi
 fi
 
 #---------------------------#

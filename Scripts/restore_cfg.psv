@@ -35,6 +35,9 @@ P|${HOME}/.config/hypr|nvidia.conf|hyprland nvidia-utils
 P|${HOME}/.config/hypr/themes|theme.conf wallbash.conf colors.conf|hyprland
 S|${HOME}/.config/systemd|user|systemd
 P|${HOME}/.local/state/hyde|hyprland.conf|hyprland
+S|${HOME}/.config|nvim|neovim
+S|${HOME}/.config|wezterm|wezterm
+S|${HOME}/.config|tmux|tmux
 
  Hyde core files -- uwsm 
 S|${HOME}/.config/uwsm|env env-hyprland env.d env-hyprland.d|systemd hyprland uwsm
@@ -67,7 +70,6 @@ O|${HOME}/.local/share|wallbash|bash imagemagick
 
 
  Editor 
-P|${HOME}/.config/Code - OSS/User|settings.json|code
 P|${HOME}/.config/Code/User|settings.json|visual-studio-code-bin
 P|${HOME}/.config/VSCodium/User|settings.json|vscodium
 
@@ -81,8 +83,6 @@ P|${HOME}/.config|lsd|lsd
 P|${HOME}/.config|fastfetch|fastfetch
 O|${HOME}/.local/share/fastfetch/presets|hyde|fastfetch
 
-S|${HOME}/.config/kitty|hyde.conf theme.conf|kitty
-P|${HOME}/.config/kitty|kitty.conf|kitty
 
  Shell 
 S|${HOME}/.config/fish|conf.d functions completions|fish
@@ -106,9 +106,6 @@ P|${HOME}/.config/zsh|.p10k.zsh|zsh zsh-theme-powerlevel10k
 
 
  Vim 
-P|${HOME}/.config/vim|vimrc|vim
-S|${HOME}/.config/vim/colors|wallbash.vim|vim
-S|${HOME}/.config/vim|hyde.vim|vim
 
  File Explorer 
 P|${HOME}/.local/state|dolphinstaterc|dolphin

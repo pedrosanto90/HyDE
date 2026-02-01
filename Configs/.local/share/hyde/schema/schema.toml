@@ -777,12 +777,12 @@ type      = "object"
     type        = "string"
 
 [properties.hyprland.properties.terminal]
-    default     = "kitty"
+    default     = "wezterm"
     description = "Terminal."
     type        = "string"
 
 [properties.hyprland.properties.quickapps]
-    default     = "kitty"
+    default     = "wezterm"
     description = "Quick apps."
     type        = "string"
 

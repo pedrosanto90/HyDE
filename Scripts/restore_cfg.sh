@@ -192,6 +192,24 @@ deploy_psv() {
     done <"${1}"
 }
 
+tmux_plugins_install() {
+    local tpm_dir="${HOME}/.tmux/plugins/tpm"
+    # Need git and tmux available
+    if ! command -v git >/dev/null 2>&1 || ! command -v tmux >/dev/null 2>&1; then
+        echo "[tmux] skipping plugin install (tmux/git not available)"
+        return
+    fi
+    if [ ! -d "${tpm_dir}/.git" ]; then
+        git clone --depth 1 https://github.com/tmux-plugins/tpm "${tpm_dir}" || {
+            echo "[tmux] failed to clone TPM"
+            return
+        }
+    else
+        git -C "${tpm_dir}" pull --ff-only || echo "[tmux] failed to update TPM"
+    fi
+    TMUX="" "${tpm_dir}/bin/install_plugins" >/dev/null 2>&1 && echo "[tmux] plugins installed" || echo "[tmux] plugin install failed"
+}
+
 hyprland_hook() {
 
     local hyde_config="${cloneDir}/Configs/.config/hypr/hyprland.conf"
@@ -263,6 +281,14 @@ json)
     ;;
 esac
 echo ""
+
+# install bundled helper scripts into ~/.local/bin
+if [ -d "${scrDir}/bin" ]; then
+    mkdir -p "${HOME}/.local/bin"
+    cp -f "${scrDir}/bin/"* "${HOME}/.local/bin/"
+fi
+
+tmux_plugins_install
 
 hyprland_hook
 

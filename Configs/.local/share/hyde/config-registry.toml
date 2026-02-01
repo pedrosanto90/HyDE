@@ -19,19 +19,6 @@ path = "${XDG_CONFIG_HOME:-$HOME/.config}/hyde/bookmarks.list"
 
 
 
-[Kitty]
-description = "Kitty Terminal Emulator"
-icon = "🐱"
-
-
-
-# Nested configuration files for kitty
-[Kitty.files.main]
-description = "Main Kitty Configuration"
-path = "${XDG_CONFIG_HOME:-$HOME/.config}/kitty/kitty.conf"
-pre_hook = ["bash", "-c", "echo 'Editing Kitty main config...'"]
-post_hook = ["bash", "-c", "killall -SIGUSR1 kitty || true"]
-
 [zsh]
 description = "Z Shell Configuration"
 icon = "🐚"

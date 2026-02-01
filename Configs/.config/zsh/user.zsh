@@ -9,7 +9,7 @@ if [[ $- == *i* ]]; then
         pokemon-colorscripts --no-title -r 1,3,6
     elif command -v fastfetch >/dev/null; then
         if do_render "image"; then
-            fastfetch --logo-type kitty
+            fastfetch
         fi
     fi
 fi
@@ -27,3 +27,23 @@ if [[ ${HYDE_ZSH_NO_PLUGINS} != "1" ]]; then
         "sudo"
     )
 fi
+
+# Aliases from user dotfiles
+alias vim="nvim"
+alias c="clear"
+alias tmx='tmux new -s $(basename $PWD)'
+alias ls='eza --icons --color=auto --group-directories-first'
+alias ll='eza -l --icons --color=auto --group-directories-first'
+alias la='eza -la --icons --color=auto --group-directories-first'
+alias cat='bat'
+alias sd='sudo shutdown now'
+alias update='~/scripts/update'
+alias sk='~/scripts/screenkey'
+alias python='python3'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias rpi-imager="flatpak run --device=all org.raspberrypi.rpi-imager"
+alias wake="~/scripts/wake 68-54-5A-FD-AE-F3"
+alias juce='~/scripts/juce'
+
+# Keybinding to launch tmux session picker (uses PATH-installed tmux-se)
+bindkey -s '^f' "tmux-se\n"

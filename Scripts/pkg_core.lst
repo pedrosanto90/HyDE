@@ -66,14 +66,35 @@ qt6-wayland                                            # wayland support in qt6
 
 # --------------------------------------------------- // Applications
 firefox                                                # browser
-kitty                                                  # terminal
+google-chrome                                          # browser (primary)
+wezterm                                                # terminal
 dolphin                                                # kde file manager
 ark                                                    # kde file archiver
 unzip                                                  # extracting zip files
-vim                                                    # terminal text editor
-code                                                   # ide text editor
+neovim                                                 # terminal text editor
+visual-studio-code-bin                                 # ide text editor (MS VSCode)
 nwg-displays                                           # monitor management utility
 fzf                                                    # Command-line fuzzy finder
+bruno-bin                                              # API client (Bruno)
+dbeaver-ce-bin                                         # Database GUI (DBeaver Community)
+nodejs-lts-iron                                        # Node.js LTS runtime (includes npm)
+nvm                                                    # Node Version Manager
+localsend-bin                                          # local file transfer
+obsidian                                               # notes/PKM app
+docker                                                 # container engine (CLI/daemon)
+docker-compose                                         # docker compose plugin
+obs-studio                                             # screen recording/streaming
+gimp                                                   # image editor
+onlyoffice-bin                                         # office suite
+eza                                                    # modern ls replacement
+bat                                                    # modern cat replacement
+networkmanager-l2tp                                   # L2TP/IPsec (e.g., Cisco Meraki) plugin for NM
+strongswan                                            # IPsec backend for L2TP
+xl2tpd                                                # L2TP daemon
+networkmanager-openvpn                                # OpenVPN plugin for NM
+openvpn                                               # OpenVPN cli
+wireguard-tools                                       # WireGuard tools (wg, wg-quick)
+networkmanager-wireguard                              # WireGuard plugin for NM
 
 # --------------------------------------------------- // Shell
 starship|zsh                                           # customizable shell prompt written in Rust
@@ -81,6 +102,7 @@ starship|zsh                                           # customizable shell prom
 starship|fish                                          # customizable shell prompt
 
 fastfetch                                              # system information fetch tool
+tmux                                                   # terminal multiplexer
 
 # --------------------------------------------------- // HyDE
 hypridle                                               # idle daemon

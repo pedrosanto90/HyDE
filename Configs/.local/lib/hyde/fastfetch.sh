@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ -z "$*" ]; then
     clear
-    exec fastfetch --logo-type kitty
+    exec fastfetch
     exit
 fi
 USAGE() {
@@ -103,6 +103,6 @@ HELP
         ;;
     *)
         clear
-        exec fastfetch --logo-type kitty
+        exec fastfetch
         ;;
 esac

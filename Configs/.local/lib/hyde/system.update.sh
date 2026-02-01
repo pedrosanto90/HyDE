@@ -26,7 +26,7 @@ if [ "$1" == "up" ]; then
         $fpk_exup
         read -n 1 -p 'Press any key to continue...'
         "
-        kitty --title systemupdate sh -c "$command"
+        wezterm start --title systemupdate -- sh -c "$command"
     else
         echo "No upgrade info found. Please run the script without parameters first."
     fi

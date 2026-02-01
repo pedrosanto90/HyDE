@@ -375,7 +375,7 @@ paste_string() {
     ignore_paste_file="$HYDE_STATE_HOME/ignore.paste"
     if [[ ! -e $ignore_paste_file ]]; then
         cat <<EOF >"$ignore_paste_file"
-kitty
+org.wezfurlong.wezterm
 org.kde.konsole
 terminator
 XTerm
